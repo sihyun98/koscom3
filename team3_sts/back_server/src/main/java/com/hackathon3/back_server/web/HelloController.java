@@ -11,12 +11,12 @@ public class HelloController {
 		
 		TestResponseDto dto = new TestResponseDto();
 		dto.setCode("OK");
-		dto.setMessage("stsÅ×½ºÆ®¼º°ø!");
+		dto.setMessage("stsí…ŒìŠ¤íŠ¸ì„±ê³µ!");
 		return dto;
 		
 //		return TestResponseDto.builder()
 //				.code("OK")
-//				.message("stsÅ×½ºÆ®¼º°ø!")
+//				.message("stsï¿½×½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½!")
 //				.build();
 	}
 }
