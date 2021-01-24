@@ -1,19 +1,25 @@
-package com.hackathon3.back_server;
+package com.hackathon3.back_server.domain;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
 @Entity
-class Member {
+public class Member {
 
-	private @Id @GeneratedValue Long id;
+	private @Id @GeneratedValue @Column(name = "member_id") Long id;
 	private String name;
 	private String grade;
 	private int age;
@@ -22,6 +28,38 @@ class Member {
 	private int salary;
 	private int property;
 	private String profile;
+	
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "member",cascade = CascadeType.ALL)
+	private List<Stock> stocks = new ArrayList<>();
+	
+	@Override
+	public boolean equals(Object o) {
+
+	    if (this == o)
+	      return true;
+	    if (!(o instanceof Member))
+	      return false;
+	    Member member = (Member) o;
+	    return Objects.equals(this.id, member.id) && Objects.equals(this.name, member.name)
+	        && Objects.equals(this.grade, member.grade) && Objects.equals(this.age, member.age)
+	        && Objects.equals(this.job, member.job) && Objects.equals(this.investOpt, member.investOpt)
+	        && Objects.equals(this.salary, member.salary) && Objects.equals(this.property, member.property)
+	        && Objects.equals(this.profile, member.profile);
+	}
+	
+	@Override
+	public int hashCode() {
+	    return Objects.hash(this.id, this.name, this.grade, this.age, this.job, this.investOpt, this.salary
+	    		, this.property, this.profile);
+	}
+	
+	@Override
+	public String toString() {
+	    return "Member{" + "id=" + this.id + ", name='" + this.name + '\'' + ", grade='" + this.grade + '\''
+	    		+ ", age='" + this.age + '\'' + ", job='" + this.job + '\'' 
+	    		+ ", investOpt='" + this.investOpt + '\'' + ", salary='" + this.salary + '\''
+	    		+ ", property='" + this.property + '\'' + ", profile='" + this.profile + '\'' + '}';
+	}
 	
 //	Member() {}
 //	
@@ -108,34 +146,4 @@ class Member {
 //	public void setProfile(String profile) {
 //		this.profile = profile;
 //	}
-	
-	@Override
-	public boolean equals(Object o) {
-
-	    if (this == o)
-	      return true;
-	    if (!(o instanceof Member))
-	      return false;
-	    Member member = (Member) o;
-	    return Objects.equals(this.id, member.id) && Objects.equals(this.name, member.name)
-	        && Objects.equals(this.grade, member.grade) && Objects.equals(this.age, member.age)
-	        && Objects.equals(this.job, member.job) && Objects.equals(this.investOpt, member.investOpt)
-	        && Objects.equals(this.salary, member.salary) && Objects.equals(this.property, member.property)
-	        && Objects.equals(this.profile, member.profile);
-	}
-	
-	@Override
-	public int hashCode() {
-	    return Objects.hash(this.id, this.name, this.grade, this.age, this.job, this.investOpt, this.salary
-	    		, this.property, this.profile);
-	}
-	
-	@Override
-	public String toString() {
-	    return "Member{" + "id=" + this.id + ", name='" + this.name + '\'' + ", grade='" + this.grade + '\''
-	    		+ ", age='" + this.age + '\'' + ", job='" + this.job + '\'' 
-	    		+ ", investOpt='" + this.investOpt + '\'' + ", salary='" + this.salary + '\''
-	    		+ ", property='" + this.property + '\'' + ", profile='" + this.profile + '\'' + '}';
-	}
-	
 }

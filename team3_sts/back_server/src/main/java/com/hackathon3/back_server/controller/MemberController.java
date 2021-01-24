@@ -1,4 +1,4 @@
-package com.hackathon3.back_server;
+package com.hackathon3.back_server.controller;
 
 import java.util.List;
 
@@ -10,20 +10,32 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hackathon3.back_server.domain.Member;
+import com.hackathon3.back_server.dto.member.MemberSearchResponseDto;
+import com.hackathon3.back_server.exception.MemberNotFoundException;
+import com.hackathon3.back_server.repository.MemberRepository;
+import com.hackathon3.back_server.service.MemberService;
+
 @RestController
 public class MemberController {
 	
 	private final MemberRepository repository;
+	
+	private final MemberService memberService;
 
-	MemberController(MemberRepository repository) {
+	MemberController(MemberRepository repository, MemberService memberService) {
 	    this.repository = repository;
+		this.memberService = memberService;
 	}
 	
 	// READ - all members
 	@GetMapping("/api/members")
-	List<Member> all() {
-	    return repository.findAll();
+	List<MemberSearchResponseDto> search() {
+		return memberService.search();
 	}
+//	List<Member> all() {
+//	    return repository.findAll();
+//	}
 	
 	// CREATE
 	@PostMapping("/api/members")
@@ -32,11 +44,16 @@ public class MemberController {
 	}
 
 	// READ - one member
-	@GetMapping("/api/members/{id}")
-	Member one(@PathVariable Long id) {
-	    return repository.findById(id)
-	      .orElseThrow(() -> new MemberNotFoundException(id));
-	}
+//	@GetMapping("/api/members/{id}")
+//	MemberSearchResponseDto one(@PathVariable Long id) {
+//		return repository.findById(id)
+//				.orElseThrow(() -> new MemberNotFoundException(id));
+//	}
+	
+//	Member one(@PathVariable Long id) {
+//	    return repository.findById(id)
+//	      .orElseThrow(() -> new MemberNotFoundException(id));
+//	}
 
 	// UPDATE - one member
 	@PutMapping("/api/members/{id}")
