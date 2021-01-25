@@ -21,6 +21,8 @@ public class Member {
 
 	private @Id @GeneratedValue @Column(name = "member_id") Long id;
 	private String name;
+	private String username;
+	private String password;
 	private String grade;
 	private int age;
 	private String job;
@@ -41,7 +43,8 @@ public class Member {
 	      return false;
 	    Member member = (Member) o;
 	    return Objects.equals(this.id, member.id) && Objects.equals(this.name, member.name)
-	        && Objects.equals(this.grade, member.grade) && Objects.equals(this.age, member.age)
+	    	&& Objects.equals(this.username, member.username) && Objects.equals(this.password, member.password)
+	    	&& Objects.equals(this.grade, member.grade) && Objects.equals(this.age, member.age)
 	        && Objects.equals(this.job, member.job) && Objects.equals(this.investOpt, member.investOpt)
 	        && Objects.equals(this.salary, member.salary) && Objects.equals(this.property, member.property)
 	        && Objects.equals(this.profile, member.profile);
@@ -49,13 +52,14 @@ public class Member {
 	
 	@Override
 	public int hashCode() {
-	    return Objects.hash(this.id, this.name, this.grade, this.age, this.job, this.investOpt, this.salary
+	    return Objects.hash(this.id, this.name, this.username, this.password, this.grade, this.age, this.job, this.investOpt, this.salary
 	    		, this.property, this.profile);
 	}
 	
 	@Override
 	public String toString() {
-	    return "Member{" + "id=" + this.id + ", name='" + this.name + '\'' + ", grade='" + this.grade + '\''
+	    return "Member{" + "id=" + this.id + ", name='" + this.name + '\'' + ", username='" + this.username + '\''
+	    		+ ", password='" + this.password + '\'' + ", grade='" + this.grade + '\''
 	    		+ ", age='" + this.age + '\'' + ", job='" + this.job + '\'' 
 	    		+ ", investOpt='" + this.investOpt + '\'' + ", salary='" + this.salary + '\''
 	    		+ ", property='" + this.property + '\'' + ", profile='" + this.profile + '\'' + '}';

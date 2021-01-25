@@ -26,6 +26,8 @@ class LoadDatabase {
 	    	  
 	    	  Member member1 = new Member();
 	    	  member1.setName("박시현");
+	    	  member1.setUsername("member1");
+	    	  member1.setPassword("1234");
 	    	  member1.setGrade("C");
 	    	  member1.setAge(24);
 	    	  member1.setJob("student");
