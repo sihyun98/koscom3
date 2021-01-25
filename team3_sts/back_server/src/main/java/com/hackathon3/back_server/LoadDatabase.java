@@ -134,7 +134,6 @@ class LoadDatabase {
 	    	  member10.setProperty(3000);
 	    	  member10.setProfile("");
 	    	  log.info("preloading " + memberRepository.save(member10));
-	   
 	    	
 	    	  // Stock
 	    	  Stock stock1_1 = new Stock();
