@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <v-navigation-drawer v-model="drawer" dark app mini-variant mini-variant-width="100" class="cyan darken-1">
+        <v-navigation-drawer v-model="drawer" dark app mini-variant mini-variant-width="100" class="orange darken-3">
             <v-list>
                 <v-list-item class="mb-12">
                     <v-list-item-action>
