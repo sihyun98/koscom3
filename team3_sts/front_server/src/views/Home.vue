@@ -13,8 +13,8 @@
                   <img src="../assets/img8.png">
                 </v-avatar>
 
-                <!-- 이름: 회원DB NAME -->                
-                <v-card-title class="layout justify-center">차예린</v-card-title>
+                <!-- 이름: 회원DB NAME -->            
+                <v-card-title class="layout justify-center">{{ loginId }} 차예린</v-card-title>
                 <!-- 나이, 직업: 회원DB -->
                 <v-card-subtitle class="layout justify-center">28세, 사무직</v-card-subtitle>
                 <v-list class="mt-n5">
@@ -386,6 +386,9 @@
 </template>
 
 <script>
+// import store from "../store/index"
+
+// import userId from "../store/variable";
 const gradients = [
   ['#222'],
     ['#42b3f4'],
@@ -395,6 +398,7 @@ const gradients = [
     ['#f72047', '#ffd200', '#1feaea'],
 ]
 export default {
+  // props: ["num"],
   data: () => ({
     with: 2,
     radius: 10,

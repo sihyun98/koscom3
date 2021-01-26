@@ -1,4 +1,5 @@
 <template>
+
   <v-row justify="center">
     <v-col
       cols="12"
@@ -32,25 +33,6 @@
             취소
           </v-btn>
           <v-spacer></v-spacer>
-          <v-slide-x-reverse-transition>
-            <v-tooltip
-              v-if="formHasErrors"
-              left
-            >
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn
-                  icon
-                  class="my-0"
-                  v-bind="attrs"
-                  @click="resetForm"
-                  v-on="on"
-                >
-                  <v-icon>mdi-refresh</v-icon>
-                </v-btn>
-              </template>
-              <span>Refresh form</span>
-            </v-tooltip>
-          </v-slide-x-reverse-transition>
           <v-btn
             color="primary"
             text
@@ -58,6 +40,7 @@
           >
             로그인
           </v-btn>
+          <!-- <childhome v-bind:num="index"></childhome> -->
         </v-card-actions>
       </v-card>
     </v-col>
@@ -66,10 +49,16 @@
 
 <script>
 import axios from "axios"
+// import ChildHome from "./Home.vue"
+
   export default {
+    // components: {
+    //     childhome: ChildHome
+    // },
     data: () => ({
       username: null,
       password: null,
+    //   index: 0
     }),
 
     computed: {
@@ -88,39 +77,21 @@ import axios from "axios"
     },
 
     methods: {
-      addressCheck () {
-        this.errorMessages = this.address && !this.name
-          ? `Hey! I'm required`
-          : ''
-
-        return true
-      },
-      resetForm () {
-        this.errorMessages = []
-        this.formHasErrors = false
-
-        Object.keys(this.form).forEach(f => {
-          this.$refs[f].reset()
-        })
-      },
       submit () {
-
-          console.log(this.form.username);
-          console.log(this.form.password);
+        //   this.$getId(this.form);
+        //   location.href = "home";
 
           axios.post('/api/member/signin', this.form)
           .then(res => {
-              console.log(this.form);
-              console.log(res.data.message);
+              if(res.data.code == "OK"){
+                //   this.index = res.data.message;
+                //   console.log(this.index);
+                  location.href = "home";
+              }
+              else{
+                  console.log("아이디 또는 비밀번호를 확인해주세요.");
+              }
           })
-
-        this.formHasErrors = false
-
-        Object.keys(this.form).forEach(f => {
-          if (!this.form[f]) this.formHasErrors = true
-
-          this.$refs[f].validate(true)
-        })
       },
     },
   }

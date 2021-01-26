@@ -28,6 +28,12 @@ public class MemberRepositorySupport extends QuerydslRepositorySupport {
 				.fetchOne();
 	}
 	
+	public Member existMember(String username) {
+		return queryFactory.selectFrom(member)
+				.where(memberUsernameEq(username))
+				.fetchOne();
+	}
+	
 	public BooleanExpression memberUsernameEq(String username) {
 		return username == null ? null : member.username.eq(username);
 	}
