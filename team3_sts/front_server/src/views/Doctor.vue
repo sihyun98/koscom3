@@ -43,7 +43,7 @@ export default {
 
   methods: {
     search() {
-      axios.get('/api/members')
+      axios.get('/api/member/search')
       .then(res => {
         this.doctor = res.data;
         console.log(this.doctor);

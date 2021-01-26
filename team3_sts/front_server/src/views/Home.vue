@@ -1,38 +1,47 @@
 <template>
   <v-app :style="{background: $vuetify.theme.themes.light.background}">
-    <v-layout row>
+    <v-layout row>      
       <v-flex md3>
         <v-app :style="{background: $vuetify.theme.themes.light.background}">
           <v-container>
+
+            <!-- 왼쪽 프로필 Box1-------------------------------------------->
             <v-flex>
               <v-card class="ma-5 text-center mt-8" shaped elevation="10">
                 <v-avatar class="mt-n7" size="60" elevation="10">
+                  <!-- 프로필(개인) 이미지 -->
                   <img src="../assets/img8.png">
                 </v-avatar>
-                <v-card-title class="layout justify-center">Bes Wilis</v-card-title>
-                <v-card-subtitle class="layout justify-center">24 year, California</v-card-subtitle>
+
+                <!-- 이름: 회원DB NAME -->                
+                <v-card-title class="layout justify-center">차예린</v-card-title>
+                <!-- 나이, 직업: 회원DB -->
+                <v-card-subtitle class="layout justify-center">28세, 사무직</v-card-subtitle>
                 <v-list class="mt-n5">
                   <v-list-item>
-                    <v-list-item-title class="cyan--text text--darken-1">Blood</v-list-item-title>
-                    <v-list-item-title class="cyan--text text--darken-1">Height</v-list-item-title>
-                    <v-list-item-title class="cyan--text text--darken-1">Weight</v-list-item-title>
+                    <!-- 순위, 구독자, 수익률: TEXT  -->
+                    <v-list-item-title class="cyan--text text--darken-1">순위</v-list-item-title>
+                    <v-list-item-title class="cyan--text text--darken-1">구독자</v-list-item-title>
+                    <v-list-item-title class="cyan--text text--darken-1">수익률</v-list-item-title>
                   </v-list-item>
                   <v-list-item class="mt-n5">
-                    <v-list-item-subtitle>-B</v-list-item-subtitle>
-                    <v-list-item-subtitle>170 cm</v-list-item-subtitle>
-                    <v-list-item-subtitle>60 Kg</v-list-item-subtitle>
+                    <!-- 순위: 계산, 구독자: 구독 DB, 수익률: 계산 -->
+                    <v-list-item-subtitle>1위</v-list-item-subtitle>
+                    <v-list-item-subtitle>1.2만</v-list-item-subtitle>
+                    <v-list-item-subtitle>543%</v-list-item-subtitle>
                   </v-list-item>
                 </v-list>
               </v-card>
             </v-flex>
 
+            <!-- 왼쪽 프로필 Box2-------------------------------------------->
             <v-flex>
               <v-card class="ma-5 mt-n2" shaped elevation="10">
-                <v-list>
+                <!-- <v-list>
                   <v-list-item>
                     <v-list-item-avatar size="10" color="cyan darken-1"></v-list-item-avatar>
-                    <v-list-item-title class="ml-n2">Kognum</v-list-item-title>
-                    <v-list-item-subtitle>10 mg</v-list-item-subtitle>
+                    <v-list-item-title class="ml-n2">투자성향</v-list-item-title>
+                    <v-list-item-subtitle>투자주식</v-list-item-subtitle>
                   </v-list-item>
                   <v-list-item>
                     <v-list-item-title class="cyan--text text--darken-1">Mon</v-list-item-title>
@@ -44,18 +53,57 @@
                     <v-list-item-subtitle>2 times in a day before food</v-list-item-subtitle>
                   </v-list-item>
                   <v-divider></v-divider>
-                </v-list>
+                </v-list> -->
 
+                <!-- v-list -------------------->
                 <v-list two-line="" subheader="">
                   <v-list-item>
-                    <v-list-item-avatar size="35">
-                      <img src="../assets/img8.png">
+                    <v-list-item-avatar size="50">
+                      <img src="../assets/imglv1.png">
                     </v-list-item-avatar>
                     <v-list-item-content class="ml-n2">
-                      <v-list-item-title>Dr. Isabella Bowers</v-list-item-title>
-                      <v-list-item-subtitle>California Hospital Medical</v-list-item-subtitle>
+
+                      <!--레벨: 회원 DB -->
+                      <v-list-item-title>LV1. 파개미</v-list-item-title>
+                      <!-- <v-list-item-subtitle>California Hospital Medical</v-list-item-subtitle> -->
                     </v-list-item-content>
                   </v-list-item>
+                  <v-divider></v-divider>
+                </v-list>
+
+                <!-- <v-list two-line="" subheader="" class="mt-n5">
+                  <v-list-item>
+                    <v-list-item-title>투자성향</v-list-item-title>
+                    <v-list-item-subtitle>단타위주</v-list-item-subtitle>
+                  </v-list-item>               
+                </v-list> -->
+
+                <!-- v-list -------------------->
+                <!--투자성향, 연봉, 재산: 회원 DB -->
+                <v-list two-line="" subheader="">
+                  <v-list-item>
+                      <v-list-item-avatar size="10" color="cyan darken-1"></v-list-item-avatar>
+                      <v-list-item-title class="ml-n2">투자성향</v-list-item-title>
+                      <v-list-item-subtitle>단타위주</v-list-item-subtitle>
+                  </v-list-item>
+
+                  <v-list-item>
+                      <v-list-item-avatar size="10" color="cyan darken-1"></v-list-item-avatar>
+                      <v-list-item-title class="ml-n2">연봉</v-list-item-title>
+                      <v-list-item-subtitle>5,000만원</v-list-item-subtitle>
+                  </v-list-item>
+
+                  <v-list-item>
+                      <v-list-item-avatar size="10" color="cyan darken-1"></v-list-item-avatar>
+                      <v-list-item-title class="ml-n2">재산</v-list-item-title>
+                      <v-list-item-subtitle>3,000만원</v-list-item-subtitle>
+                  </v-list-item>
+                
+                <!-- <v-list two-line="" subheader="" class="mt-n5">
+                  <v-list-item>
+                    <v-list-item-title>Surgeon</v-list-item-title>
+                    <v-list-item-subtitle>spinal pain</v-list-item-subtitle>
+                  </v-list-item>               
                 </v-list>
 
                 <v-list two-line="" subheader="" class="mt-n5">
@@ -63,29 +111,36 @@
                     <v-list-item-title>Surgeon</v-list-item-title>
                     <v-list-item-subtitle>spinal pain</v-list-item-subtitle>
                   </v-list-item>               
+                </v-list> -->
+                  <v-divider></v-divider>
                 </v-list>
 
-                <v-list two-line="" subheader="" class="my-n8">
+                <!-- v-list -------------------->
+                <!-- 소개글: 회원 DB -->
+                <v-list two-line="" subheader="" > <!--class="my-n8">  -->                
                   <v-list-item>
-                    <v-list-item-title class="cyan--text text--darken-1">Date</v-list-item-title>
-                    <v-list-item-title class="cyan--text text--darken-1">Time</v-list-item-title>
+                    <v-list-item-title class="cyan--text text--darken-1">소개글</v-list-item-title>
+                    <!-- <v-list-item-title class="cyan--text text--darken-1">Time</v-list-item-title> -->
                   </v-list-item>
                   <v-list-item class="mt-n10">
-                    <v-list-item-title >26 Aug 2020</v-list-item-title>
-                    <v-list-item-title >12:45</v-list-item-title>
+                    <v-list-item-title >나는야 파개미</v-list-item-title>
+                    <!-- <v-list-item-title >12:45</v-list-item-title> -->
                   </v-list-item>
+                  <v-divider></v-divider>
                 </v-list>
+
               </v-card>
             </v-flex>
 
+            <!-- 왼쪽 프로필 Box3-------------------------------------------->
             <v-flex>
               <v-card class="ma-5 text text-center mt-6" shaped elevation="10">
                 <v-list-item three-line>
                   <v-list-item-content>
-                    <v-list-item-title class="headline mb-1">
-                      <v-icon>fab fa-cc-visa</v-icon>
-                    </v-list-item-title>
-                    <v-list-item-subtitle>2345 4546 7889 5432</v-list-item-subtitle>
+                    <v-list-item-title class="headline mb-1"> 구독하기
+                      <!-- <v-icon>구독하기</v-icon>                         -->
+                     </v-list-item-title>
+                    <!-- <v-list-item-subtitle>2345 4546 7889 5432</v-list-item-subtitle>  -->
                   </v-list-item-content>
                   <v-list-item-avatar size="60" color="cyan darken-1">
                     <v-icon color="white">fas fa-plus</v-icon>

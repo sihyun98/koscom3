@@ -24,17 +24,118 @@ class LoadDatabase {
 
 	      return args -> {
 	    	  
+	    	  //Member
 	    	  Member member1 = new Member();
-	    	  member1.setName("박시현");
-	    	  member1.setGrade("C");
-	    	  member1.setAge(24);
-	    	  member1.setJob("student");
-	    	  member1.setInvestOpt("안전추구형");
-	    	  member1.setSalary(300);
-	    	  member1.setProperty(500);
-	    	  member1.setProfile("안녕");
-	    	  log.info("Preloading " + memberRepository.save(member1));
+	    	  member1.setName("차예린");
+	    	  member1.setGrade("LV.1 파개미");
+	    	  member1.setAge(28);
+	    	  member1.setJob("사무직");
+	    	  member1.setInvestOpt("투자주식");
+	    	  member1.setSalary(5000);
+	    	  member1.setProperty(3000);
+	    	  member1.setProfile("나는야 파개미");
+	    	  log.info("preloading " + memberRepository.save(member1));
+	    	  
+	    	  Member member2 = new Member();
+	    	  member2.setName("윤하은");
+	    	  member2.setGrade("LV.2 초개미");
+	    	  member2.setAge(28);
+	    	  member2.setJob("사무직");
+	    	  member2.setInvestOpt("단타위주");
+	    	  member2.setSalary(5000);
+	    	  member2.setProperty(3000);
+	    	  member2.setProfile("");
+	    	  log.info("preloading " + memberRepository.save(member2));
+	    	  
+	    	  Member member3 = new Member();
+	    	  member3.setName("안기현");
+	    	  member3.setGrade("LV3. 노개미");
+	    	  member3.setAge(29);
+	    	  member3.setJob("사무직");
+	    	  member3.setInvestOpt("투자주식");
+	    	  member3.setSalary(5000);
+	    	  member3.setProperty(3000);
+	    	  member3.setProfile("");
+	    	  log.info("preloading " + memberRepository.save(member3));
+	    	  
+	    	  Member member4 = new Member();
+	    	  member4.setName("조태율");
+	    	  member4.setGrade("LV4. 빨개미");
+	    	  member4.setAge(29);
+	    	  member4.setJob("사무직");
+	    	  member4.setInvestOpt("위험추구");
+	    	  member4.setSalary(5000);
+	    	  member4.setProperty(3000);
+	    	  member4.setProfile("");
+	    	  log.info("preloading " + memberRepository.save(member4));
+
+	    	  Member member5 = new Member();
+	    	  member5.setName("노영록");
+	    	  member5.setGrade("LV.1 파개미");
+	    	  member5.setAge(27);
+	    	  member5.setJob("사무직");
+	    	  member5.setInvestOpt("투자주식");
+	    	  member5.setSalary(5000);
+	    	  member5.setProperty(3000);
+	    	  member5.setProfile("");
+	    	  log.info("preloading " + memberRepository.save(member5));
+
+	    	  Member member6 = new Member();
+	    	  member6.setName("이예은");
+	    	  member6.setGrade("LV.2 초개미");
+	    	  member6.setAge(29);
+	    	  member6.setJob("사무직");
+	    	  member6.setInvestOpt("투자주식");
+	    	  member6.setSalary(5000);
+	    	  member6.setProperty(3000);
+	    	  member6.setProfile("");
+	    	  log.info("preloading " + memberRepository.save(member6));
+	    	  
+	    	  Member member7 = new Member();
+	    	  member7.setName("이영인");
+	    	  member7.setGrade("LV3. 노개미");
+	    	  member7.setAge(29);
+	    	  member7.setJob("사무직");
+	    	  member7.setInvestOpt("투자주식");
+	    	  member7.setSalary(5000);
+	    	  member7.setProperty(3000);
+	    	  member7.setProfile("");
+	    	  log.info("preloading " + memberRepository.save(member7));
+	    	  
+	    	  Member member8 = new Member();
+	    	  member8.setName("박용수");
+	    	  member8.setGrade("LV4. 빨개미");
+	    	  member8.setAge(28);
+	    	  member8.setJob("사무직");
+	    	  member8.setInvestOpt("위험은조금만");
+	    	  member8.setSalary(5000);
+	    	  member8.setProperty(3000);
+	    	  member8.setProfile("");
+	    	  log.info("preloading " + memberRepository.save(member8));
+	    	  
+	    	  Member member9 = new Member();
+	    	  member9.setName("김태현");
+	    	  member9.setGrade("LV.1 파개미");
+	    	  member9.setAge(22);
+	    	  member9.setJob("사무직");
+	    	  member9.setInvestOpt("위험은조금만");
+	    	  member9.setSalary(5000);
+	    	  member9.setProperty(3000);
+	    	  member9.setProfile("");
+	    	  log.info("preloading " + memberRepository.save(member9));
+	    	  
+	    	  Member member10 = new Member();
+	    	  member10.setName("김수아");
+	    	  member10.setGrade("LV.2 초개미");
+	    	  member10.setAge(29);
+	    	  member10.setJob("사무직");
+	    	  member10.setInvestOpt("투자주식");
+	    	  member10.setSalary(5000);
+	    	  member10.setProperty(3000);
+	    	  member10.setProfile("");
+	    	  log.info("preloading " + memberRepository.save(member10));
 	    	
+	    	  // Stock
 	    	  Stock stock1_1 = new Stock();
 	    	  stock1_1.setBalanceNo("123456789");
 	    	  stock1_1.setMember(member1);

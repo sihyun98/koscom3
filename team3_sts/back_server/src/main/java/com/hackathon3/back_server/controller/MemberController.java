@@ -11,7 +11,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hackathon3.back_server.domain.Member;
+import com.hackathon3.back_server.dto.member.MemberSaveRequestDto;
+import com.hackathon3.back_server.dto.member.MemberSaveResponseDto;
 import com.hackathon3.back_server.dto.member.MemberSearchResponseDto;
+import com.hackathon3.back_server.dto.member.MemberSigninRequestDto;
+import com.hackathon3.back_server.dto.member.MemberSigninResponseDto;
 import com.hackathon3.back_server.exception.MemberNotFoundException;
 import com.hackathon3.back_server.repository.MemberRepository;
 import com.hackathon3.back_server.service.MemberService;
@@ -28,8 +32,8 @@ public class MemberController {
 		this.memberService = memberService;
 	}
 	
-	// READ - all members
-	@GetMapping("/api/members")
+	// GET
+	@GetMapping("/api/member/search")
 	List<MemberSearchResponseDto> search() {
 		return memberService.search();
 	}
@@ -37,11 +41,21 @@ public class MemberController {
 //	    return repository.findAll();
 //	}
 	
-	// CREATE
-	@PostMapping("/api/members")
-	Member newMember(@RequestBody Member newMember) {
-	    return repository.save(newMember);
+	// GET
+	@PostMapping("/api/member/signin")
+	public MemberSigninResponseDto signin(@RequestBody MemberSigninRequestDto requestDto) {
+//		System.out.println(requestDto.getUsername());
+		return memberService.signin(requestDto);
 	}
+	
+	// CREATE
+	@PostMapping("/api/member")
+	public MemberSaveResponseDto save(@RequestBody MemberSaveRequestDto requestDto) {
+		return memberService.save(requestDto);
+	}
+//	Member newMember(@RequestBody Member newMember) {
+//	    return repository.save(newMember);
+//	}
 
 	// READ - one member
 //	@GetMapping("/api/members/{id}")
