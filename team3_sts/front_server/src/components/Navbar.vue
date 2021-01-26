@@ -1,6 +1,14 @@
 <template>
     <nav>
         <v-navigation-drawer v-model="drawer" dark app mini-variant mini-variant-width="100" class="orange darken-3">
+
+            <v-list style="position: absolute; top:0" class="ml-3" flat>
+                <v-img
+                  :src="require('../assets/imglogo1.png')"
+                  width="80"
+                />
+            </v-list>
+
             <v-list>
                 <v-list-item class="mb-12">
                     <v-list-item-action>
