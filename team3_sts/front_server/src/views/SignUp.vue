@@ -93,7 +93,7 @@
             취소
           </v-btn>
           <v-spacer></v-spacer>
-          <v-slide-x-reverse-transition>
+          <!-- <v-slide-x-reverse-transition>
             <v-tooltip
               v-if="formHasErrors"
               left
@@ -111,7 +111,7 @@
               </template>
               <span>Refresh form</span>
             </v-tooltip>
-          </v-slide-x-reverse-transition>
+          </v-slide-x-reverse-transition> -->
           <v-btn
             color="primary"
             text
@@ -165,21 +165,21 @@ import axios from "axios"
     },
 
     methods: {
-      addressCheck () {
-        this.errorMessages = this.address && !this.name
-          ? `Hey! I'm required`
-          : ''
+      // addressCheck () {
+      //   this.errorMessages = this.address && !this.name
+      //     ? `Hey! I'm required`
+      //     : ''
 
-        return true
-      },
-      resetForm () {
-        this.errorMessages = []
-        this.formHasErrors = false
+      //   return true
+      // },
+      // resetForm () {
+      //   this.errorMessages = []
+      //   this.formHasErrors = false
 
-        Object.keys(this.form).forEach(f => {
-          this.$refs[f].reset()
-        })
-      },
+      //   Object.keys(this.form).forEach(f => {
+      //     this.$refs[f].reset()
+      //   })
+      // },
       submit () {
 
           axios.post('/api/member', this.form)
@@ -187,13 +187,13 @@ import axios from "axios"
               console.log(res);
           })
 
-        this.formHasErrors = false
+        // this.formHasErrors = false
 
-        Object.keys(this.form).forEach(f => {
-          if (!this.form[f]) this.formHasErrors = true
+        // Object.keys(this.form).forEach(f => {
+        //   if (!this.form[f]) this.formHasErrors = true
 
-          this.$refs[f].validate(true)
-        })
+        //   this.$refs[f].validate(true)
+        // })
       },
     },
   }

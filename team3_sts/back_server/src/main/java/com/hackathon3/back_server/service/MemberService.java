@@ -108,18 +108,22 @@ public class MemberService {
 	public MemberSigninResponseDto signin(MemberSigninRequestDto requestDto) {
 
 		Member member = memberRepositorySupport.searchMember(requestDto.getUsername(), requestDto.getPassword());
-
+		MemberSigninResponseDto dto = new MemberSigninResponseDto();
+		
 		if(member == null) {
-			throw new IllegalArgumentException("해당 멤버가 존재하지 않습니다.");
+			
+			dto.setCode("FAIL");
+			dto.setMessage(String.valueOf(0));
+			
 		}
 		else {
 			Long id = member.getId();
 			
-			MemberSigninResponseDto dto = new MemberSigninResponseDto();
 			dto.setCode("OK");
 			dto.setMessage(String.valueOf(id));
 			
-			return dto;
 		}
+		
+		return dto;
 	}
 }
