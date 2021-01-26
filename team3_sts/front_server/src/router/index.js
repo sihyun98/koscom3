@@ -5,6 +5,8 @@ import Doctor from "../views/Doctor.vue";
 import SignIn from "../views/SignIn.vue";
 import SignUp from "../views/SignUp.vue";
 import Subscribe from "../views/Subscribe.vue";
+import SubscribeList from "../views/SubscribeList.vue";
+
 
 Vue.use(VueRouter);
 
@@ -38,6 +40,11 @@ const routes = [
     path: "/Subscribe",
     name: "Subscribe",
     component: Subscribe
+  },
+  {
+    path: "/SubscribeList",
+    name: "SubscribeList",
+    component: SubscribeList
   },
   {
     path: "/about",

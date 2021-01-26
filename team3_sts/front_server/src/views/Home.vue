@@ -124,7 +124,7 @@
                     <!-- <v-list-item-title class="orange--text text--darken-3">Time</v-list-item-title> -->
                   </v-list-item>
                   <v-list-item class="mt-n10" >
-                    <v-list-item-title >나는야 파개미</v-list-item-title>
+                    <v-list-item-title >나는야 파개미!! 주식을 좋아하지</v-list-item-title>
                     <!-- <v-list-item-title >12:45</v-list-item-title> -->
                   </v-list-item>
                   <v-divider></v-divider>
@@ -134,17 +134,17 @@
             </v-flex>
 
             <!-- 왼쪽 프로필 Box3-------------------------------------------->
-            <v-flex>
+            <v-flex> 
               <v-card class="ma-5 text text-center mt-6" shaped elevation="10">
-                <v-list-item three-line>
+                <v-list-item three-line router to="/SubscribeList">
                   <v-list-item-content>
-                    <v-list-item-title class="headline mb-1"> 구독하기
+                    <v-list-item-title class="headline mb-1"> 옆집 놀러가기
                       <!-- <v-icon>구독하기</v-icon>                         -->
                      </v-list-item-title>
                     <!-- <v-list-item-subtitle>2345 4546 7889 5432</v-list-item-subtitle>  -->
                   </v-list-item-content>
                   <v-list-item-avatar size="60" color="orange darken-3">
-                    <v-icon color="white">fas fa-plus</v-icon>
+                    <v-icon color="white">fas fa-suitcase-rolling</v-icon>
                   </v-list-item-avatar>
                 </v-list-item>
               </v-card>
@@ -183,14 +183,14 @@
           <v-col cols="12" md="10">            
             <v-list two-line="" subheader="" class="ml-n8" >
               <v-list-item>
-                <v-list-item-content>
-                  <v-list-item-subtitle>총 자산</v-list-item-subtitle>
-                    <v-list-item-title>2,000,000원</v-list-item-title>
-                    
+                <v-list-item-avatar size="60" >
+                    <v-icon color="orange darken-3">fas fa-wallet</v-icon>  
+                </v-list-item-avatar>
+                <v-list-item-content>                    
+                    <v-list-item-subtitle>총 자산</v-list-item-subtitle>
+                    <v-list-item-title>2,000,000원</v-list-item-title>                    
                 </v-list-item-content>
-                <v-list-item-avatar size="60" color="orange darken-3">
-                    <v-icon color="red">arrow-bottom-bold</v-icon>
-                  </v-list-item-avatar>
+                
               </v-list-item>
             </v-list>
           </v-col>
@@ -206,6 +206,11 @@
           <v-col cols="12" md="10">
             <v-list two-line subheader class="ml-n8">
               <v-list-item>
+                <!-- 데이터에 따라 up down if문 작성 -->
+                <v-list-item-avatar size="60" >
+                    <v-icon color="red accent-4" size="30">fas fa-sort-up</v-icon>  
+                    <!-- <v-icon color="blue darken-4" size="30">fas fa-sort-down</v-icon>   -->
+                </v-list-item-avatar>
                 <v-list-item-content>
                   <v-list-item-subtitle>손익</v-list-item-subtitle>
                   <v-list-item-title>1,000,000원</v-list-item-title>
@@ -226,6 +231,11 @@
           <v-col cols="12" md="10">
             <v-list two-line subheader class="ml-n8">
               <v-list-item>
+                <!-- 데이터에 따라 up down if문 작성 -->
+                <v-list-item-avatar size="60" >
+                    <v-icon color="red accent-4" size="30">fas fa-sort-up</v-icon>  
+                    <!-- <v-icon color="blue darken-4" size="30">fas fa-sort-down</v-icon>   -->
+                </v-list-item-avatar>
                 <v-list-item-content>
                   <v-list-item-subtitle>수익률</v-list-item-subtitle>
                   <v-list-item-title>50%</v-list-item-title>
