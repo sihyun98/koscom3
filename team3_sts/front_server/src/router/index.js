@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import Doctor from "../views/Doctor.vue";
 import SignIn from "../views/SignIn.vue";
 import SignUp from "../views/SignUp.vue";
+import Subscribe from "../views/Subscribe.vue";
 
 Vue.use(VueRouter);
 
@@ -32,6 +33,11 @@ const routes = [
     path: "/signup",
     name: "SignUp",
     component: SignUp
+  },
+  {
+    path: "/Subscribe",
+    name: "Subscribe",
+    component: Subscribe
   },
   {
     path: "/about",
