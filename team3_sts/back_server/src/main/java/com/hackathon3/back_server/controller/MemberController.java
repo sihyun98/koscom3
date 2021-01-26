@@ -41,6 +41,12 @@ public class MemberController {
 		return memberService.search();
 	}
 	
+	// SEARCH
+	@GetMapping("/api/member/search/{id}")
+	public MemberSearchResponseDto searchMember(@PathVariable Long id) {
+		return memberService.searchMember(id);
+	}
+	
 	// SIGNIN
 	@PostMapping("/api/member/signin")
 	public MemberSigninResponseDto signin(@RequestBody MemberSigninRequestDto requestDto) {

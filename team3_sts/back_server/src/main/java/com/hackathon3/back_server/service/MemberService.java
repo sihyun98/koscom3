@@ -96,6 +96,28 @@ public class MemberService {
 		return memberSearchResponseDto;
 	}
 	
+	// GET - 회원 정보 가져오기
+	@Transactional(readOnly = true)
+	public MemberSearchResponseDto searchMember(Long id) {
+		
+		Member member = repository.findById(id).get();
+
+		MemberSearchResponseDto dto = new MemberSearchResponseDto();
+		dto.setId(member.getId());
+		dto.setName(member.getName());
+		dto.setUsername(member.getUsername());
+		dto.setPassword(member.getPassword());
+		dto.setGrade(member.getGrade());
+		dto.setAge(member.getAge());
+		dto.setJob(member.getJob());
+		dto.setInvestOpt(member.getInvestOpt());
+		dto.setSalary(member.getSalary());
+		dto.setProperty(member.getProperty());
+		dto.setProfile(member.getProfile());
+								
+		return dto;
+	}
+	
 	// GET - 로그인
 	@Transactional
 	public MemberSigninResponseDto signin(MemberSigninRequestDto requestDto) {
