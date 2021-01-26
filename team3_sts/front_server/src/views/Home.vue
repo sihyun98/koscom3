@@ -13,8 +13,8 @@
                   <img src="../assets/img8.png">
                 </v-avatar>
 
-                <!-- 이름: 회원DB NAME -->                
-                <v-card-title class="layout justify-center">차예린</v-card-title>
+                <!-- 이름: 회원DB NAME -->            
+                <v-card-title class="layout justify-center">{{ loginId }} 차예린</v-card-title>
                 <!-- 나이, 직업: 회원DB -->
                 <v-card-subtitle class="layout justify-center">28세, 사무직</v-card-subtitle>
                 <v-list class="mt-n5">
@@ -310,6 +310,9 @@
 </template>
 
 <script>
+// import store from "../store/index"
+
+// import userId from "../store/variable";
 const gradients = [
   ['#222'],
     ['#42b3f4'],
@@ -333,7 +336,15 @@ export default {
     autoLineWidth: false,
     arrayEvents: null,
     date2: new Date().toISOString().substr(0,10),
+
+    // id: userId,
   }),
+  created(){
+    // console.log("id : " + $store.getters.Id);
+    // console.log("id : " + this.$store);
+    // console.log(this.id);
+    // console.log(this.loginId);
+  },
   computed: {
     theme(){
       return this.$vuetify.theme.dark ? "dark" :"light";
