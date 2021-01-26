@@ -5,7 +5,6 @@
             <v-list style="position: absolute; top:0" class="ml-3" flat>
                 <v-img
                   :src="require('../assets/imglogo1.png')"
-
                   width="80"
                 />
             </v-list>
