@@ -322,6 +322,7 @@ const gradients = [
     ['#f72047', '#ffd200', '#1feaea'],
 ]
 export default {
+  // props: ["num"],
   data: () => ({
     with: 2,
     radius: 10,
@@ -344,6 +345,7 @@ export default {
     // console.log("id : " + this.$store);
     // console.log(this.id);
     // console.log(this.loginId);
+    // console.log(this.num);
   },
   computed: {
     theme(){

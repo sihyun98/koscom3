@@ -40,6 +40,7 @@
           >
             로그인
           </v-btn>
+          <!-- <childhome v-bind:num="index"></childhome> -->
         </v-card-actions>
       </v-card>
     </v-col>
@@ -48,11 +49,16 @@
 
 <script>
 import axios from "axios"
+// import ChildHome from "./Home.vue"
 
   export default {
+    // components: {
+    //     childhome: ChildHome
+    // },
     data: () => ({
       username: null,
       password: null,
+    //   index: 0
     }),
 
     computed: {
@@ -72,9 +78,14 @@ import axios from "axios"
 
     methods: {
       submit () {
+        //   this.$getId(this.form);
+        //   location.href = "home";
+
           axios.post('/api/member/signin', this.form)
           .then(res => {
               if(res.data.code == "OK"){
+                //   this.index = res.data.message;
+                //   console.log(this.index);
                   location.href = "home";
               }
               else{

@@ -11,11 +11,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hackathon3.back_server.domain.Member;
+import com.hackathon3.back_server.dto.member.MemberDeleteResponseDto;
 import com.hackathon3.back_server.dto.member.MemberSaveRequestDto;
 import com.hackathon3.back_server.dto.member.MemberSaveResponseDto;
 import com.hackathon3.back_server.dto.member.MemberSearchResponseDto;
 import com.hackathon3.back_server.dto.member.MemberSigninRequestDto;
 import com.hackathon3.back_server.dto.member.MemberSigninResponseDto;
+import com.hackathon3.back_server.dto.member.MemberUpdateRequestDto;
+import com.hackathon3.back_server.dto.member.MemberUpdateResponseDto;
 import com.hackathon3.back_server.exception.MemberNotFoundException;
 import com.hackathon3.back_server.repository.MemberRepository;
 import com.hackathon3.back_server.service.MemberService;
@@ -32,19 +35,15 @@ public class MemberController {
 		this.memberService = memberService;
 	}
 	
-	// GET
+	// SEARCH
 	@GetMapping("/api/member/search")
-	List<MemberSearchResponseDto> search() {
+	public List<MemberSearchResponseDto> search() {
 		return memberService.search();
 	}
-//	List<Member> all() {
-//	    return repository.findAll();
-//	}
 	
-	// GET
+	// SIGNIN
 	@PostMapping("/api/member/signin")
 	public MemberSigninResponseDto signin(@RequestBody MemberSigninRequestDto requestDto) {
-//		System.out.println(requestDto.getUsername());
 		return memberService.signin(requestDto);
 	}
 	
@@ -53,41 +52,17 @@ public class MemberController {
 	public MemberSaveResponseDto save(@RequestBody MemberSaveRequestDto requestDto) {
 		return memberService.save(requestDto);
 	}
-//	Member newMember(@RequestBody Member newMember) {
-//	    return repository.save(newMember);
-//	}
 
-	// READ - one member
-//	@GetMapping("/api/members/{id}")
-//	MemberSearchResponseDto one(@PathVariable Long id) {
-//		return repository.findById(id)
-//				.orElseThrow(() -> new MemberNotFoundException(id));
-//	}
+	// UPDATE
+	@PutMapping("/api/member/{id}")
+    public MemberUpdateResponseDto update(@PathVariable Long id, @RequestBody MemberUpdateRequestDto requestDto){
+        return memberService.update(id,requestDto);
+    }
 	
-//	Member one(@PathVariable Long id) {
-//	    return repository.findById(id)
-//	      .orElseThrow(() -> new MemberNotFoundException(id));
-//	}
-
-	// UPDATE - one member
-	@PutMapping("/api/members/{id}")
-	Member replaceMember(@RequestBody Member newMember, @PathVariable Long id) {
-
-	    return repository.findById(id)
-	      .map(member -> {
-	    	  member.setName(newMember.getName());
-	    	  member.setAge(newMember.getAge());
-	        return repository.save(member);
-	      })
-	      .orElseGet(() -> {
-	    	  newMember.setId(id);
-	        return repository.save(newMember);
-	      });
-	}
 
 	// DELETE - one member
-	@DeleteMapping("/api/members/{id}")
-	void deleteMember(@PathVariable Long id) {
-	    repository.deleteById(id);
+	@DeleteMapping("/api/member/{id}")
+	public MemberDeleteResponseDto delete(@PathVariable Long id) {
+	    return memberService.delete(id);
 	}
 }
