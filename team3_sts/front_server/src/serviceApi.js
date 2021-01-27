@@ -1,3 +1,5 @@
+// ㅜㅜ
+
 import API from "./axiosConfig";
 
 const getId = (data, callback, errorCallback) => {

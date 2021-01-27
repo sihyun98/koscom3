@@ -1,21 +1,14 @@
+<!-- API 테스트 하기 위한 임시 페이지 입니다 -->
+
 <template>
   <div class="hello">
-
-    <!-- <button type="button">보기</button> -->
-    <!-- {{ name }} <br> -->
-    <button type="button" @click="search">보기</button>
-    <div v-if='view === true'>
-      -------------------<br>
       {{ doctor }}
-    </div>
-
-
   </div>
     
 </template>
 
 <script>
-import axios from "axios"
+// import axios from "axios"
 
 export default {
   name: "HelloWorld",
@@ -27,13 +20,16 @@ export default {
       view: false,
       name: '',
       name2: '',
-      doctor: []
+      doctor: [],
+      currentVal: [],
     }
   },
   created() {
-    // axios.get('http://127.0.0.1:5000/api/test')
+    // axios.get('https://sandbox-apigw.koscom.co.kr/v2/market/multiquote/stocks'
+    // + '/kospi/price?isuCd=' + '005930,000660'
+    // + '?apikey=l7xxc460c2c4fca442ebaef0e2d8977dc043')
     //   .then(res => {
-    //     this.name = res.data.message;
+    //     this.doctor = res.data;
     //     // this.view = true;
     //   })
     //   .catch(err => {
@@ -42,17 +38,7 @@ export default {
   },
 
   methods: {
-    search() {
-      axios.get('/api/member/search')
-      .then(res => {
-        this.doctor = res.data;
-        console.log(this.doctor);
-        this.view = true;
-      })
-      .catch(err => {
-        console.log('err', err);
-      })
-    }
+
   }
 };
 </script>

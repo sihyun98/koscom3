@@ -1,4 +1,5 @@
-// import { getOwnPropertyDescriptor } from 'core-js/fn/object'
+// Store 연습하기 위한 임시 페이지 입니다
+
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from "axios"

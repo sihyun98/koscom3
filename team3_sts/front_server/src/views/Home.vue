@@ -484,6 +484,7 @@ export default {
 <script>
 import axios from 'axios'
 import priceComma from '../priceComma'
+import findStock from '../findStock'
 
 export default {
   data: () => ({
@@ -573,7 +574,7 @@ export default {
     // console.log("hi");
     axios.get('/api/member/search/1')
       .then(res => {
-        console.log(res.data);
+        // console.log(res.data);
         this.name = res.data.name,
         this.username = res.data.username,
         this.grade = res.data.grade,
@@ -592,16 +593,21 @@ export default {
       .then(res => {
         const msg = res.data;
         this.Stock = msg;
+        console.log("1 : " + this.Stock);
         for(var i=0; i<this.Stock.length; i++){
           this.Stock[i].valTrade = priceComma(this.Stock[i].valTrade);
+          console.log(findStock('000020'));
         }
       })
       .catch(err => {
         console.log('err', err);
       })
+
+      console.log("2 : " + this.Stock);
   },
   methods: {
     priceComma,
+    findStock,
   }
 }
 </script>
