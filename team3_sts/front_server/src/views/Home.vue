@@ -376,7 +376,7 @@
                 </v-card-title>
                 <v-data-table
                   :headers="headers"
-                  :items="desserts"
+                  :items="Stock"
                   :search="search"
                 ></v-data-table>
               </v-card>
@@ -483,6 +483,8 @@ export default {
 
 <script>
 import axios from 'axios'
+import priceComma from '../priceComma'
+
 export default {
   data: () => ({
 //테이블
@@ -492,7 +494,7 @@ export default {
         text: '타입',
         align: 'start',
         sortable: false,
-        value: 'type',
+        value: 'assertType',
       },
       { text: '종목', value: 'stockNm' },
       { text: '평가금액', value: 'valEvalu' },
@@ -502,59 +504,60 @@ export default {
       { text: '매입가', value: 'valTrade' },    
       { text: '현재가', value: 'valstock' },
     ],
-    desserts: [
-      {
-        type: '국내주식',
-        stockNm: '삼성전자',
-        valEvalu: '880,000원',
-        earningRate: '25.71%',
-        profit: '180,000원',
-        qty: 10,
-        valTrade: '70,000원',
-        valstock: '88,000원',
-      },
-      {
-        type: '국내주식',
-        stockNm: '대한항공',
-        valEvalu: '303000원',
-        earningRate: '21.20%',
-        profit: '53,000원',
-        qty: 10,
-        valTrade: '25,000원',
-        valstock: '30,300원',
-      },
-      {
-        type: '국내주식',
-        stockNm: '기아차',
-        valEvalu: '892,000원',
-        earningRate: '4.94%',
-        profit: '42,000원',
-        qty: 10,
-        valTrade: '85,000원',
-        valstock: '89,200원',
-      },
-      {
-        type: '국내주식',
-        stockNm: 'LG전자',
-        valEvalu: '511,500원',
-        earningRate: '3.33%',
-        profit: '16,500원',
-        qty: 3,
-        valTrade: '170,500원',
-        valstock: '495,000원',
-      },
-      {
-        type: '국내주식',
-        stockNm: '현대차',
-        valEvalu: '1,272,500원',
-        earningRate: '10.65%',
-        profit: '122,500원',
-        qty: 5,
-        valTrade: '230,000원',
-        valstock: '254,500원',
-      },
+    Stock: [],
+    // desserts: [
+    //   {
+    //     type: '국내주식',
+    //     stockNm: '삼성전자',
+    //     valEvalu: '880,000원',
+    //     earningRate: '25.71%',
+    //     profit: '180,000원',
+    //     qty: 10,
+    //     valTrade: '70,000원',
+    //     valstock: '88,000원',
+    //   },
+    //   {
+    //     type: '국내주식',
+    //     stockNm: '대한항공',
+    //     valEvalu: '303000원',
+    //     earningRate: '21.20%',
+    //     profit: '53,000원',
+    //     qty: 10,
+    //     valTrade: '25,000원',
+    //     valstock: '30,300원',
+    //   },
+    //   {
+    //     type: '국내주식',
+    //     stockNm: '기아차',
+    //     valEvalu: '892,000원',
+    //     earningRate: '4.94%',
+    //     profit: '42,000원',
+    //     qty: 10,
+    //     valTrade: '85,000원',
+    //     valstock: '89,200원',
+    //   },
+    //   {
+    //     type: '국내주식',
+    //     stockNm: 'LG전자',
+    //     valEvalu: '511,500원',
+    //     earningRate: '3.33%',
+    //     profit: '16,500원',
+    //     qty: 3,
+    //     valTrade: '170,500원',
+    //     valstock: '495,000원',
+    //   },
+    //   {
+    //     type: '국내주식',
+    //     stockNm: '현대차',
+    //     valEvalu: '1,272,500원',
+    //     earningRate: '10.65%',
+    //     profit: '122,500원',
+    //     qty: 5,
+    //     valTrade: '230,000원',
+    //     valstock: '254,500원',
+    //   },
       
-    ],
+    // ],
     name: '',
     username: '',
     password: '',
@@ -567,8 +570,8 @@ export default {
     profile: '',
   }),
   created(){
-    console.log("hi");
-    axios.get('/api/member/search/2')
+    // console.log("hi");
+    axios.get('/api/member/search/1')
       .then(res => {
         console.log(res.data);
         this.name = res.data.name,
@@ -577,14 +580,28 @@ export default {
         this.age = res.data.age,
         this.job = res.data.job,
         this.investOpt = res.data.investOpt,
-        this.salary = res.data.salary,
-        this.property = res.data.property,
+        this.salary = priceComma(res.data.salary),
+        this.property = priceComma(res.data.property),
         this.profile = res.data.profile
-        console.log(this.name);
       })
       .catch(err => {
         console.log('err', err);
       })
+    
+    axios.get('/api/stock/search/1')
+      .then(res => {
+        const msg = res.data;
+        this.Stock = msg;
+        for(var i=0; i<this.Stock.length; i++){
+          this.Stock[i].valTrade = priceComma(this.Stock[i].valTrade);
+        }
+      })
+      .catch(err => {
+        console.log('err', err);
+      })
+  },
+  methods: {
+    priceComma,
   }
 }
 </script>
