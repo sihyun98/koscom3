@@ -25,7 +25,7 @@
                 </v-list-item>
                 <v-list-item router to="/SubscribeList">
                     <v-list-item-content>
-                        <v-icon class="mb-2">fas fa-address-card</v-icon> 
+                        <v-icon class="mb-2">fas fa-search</v-icon> 
                         <v-list-item-subtitle align="center">옆집</v-list-item-subtitle>
                     </v-list-item-content>
                 </v-list-item>
