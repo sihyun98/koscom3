@@ -10,7 +10,7 @@ import lombok.Setter;
 @Entity
 public class Stock {
 	
-	private @Id @GeneratedValue Long id;
+	private @Id @GeneratedValue @Column(name = "stock_id") Long id;
 	private String balanceNo;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
