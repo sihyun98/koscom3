@@ -162,6 +162,17 @@ class LoadDatabase {
 //	    	  stock1_1.setMemberId(member1.getId());
 	    	  stock1_1.setFirmNm("NH투자증권");
 	    	  stock1_1.setStockNm("삼성전자");
+	    	  stock1_1.setQty(82);
+	    	  stock1_1.setValTrade();
+	    	  stock1_1.setAssertType("주식");
+	    	  log.info("Preloading " + stockRepository.save(stock1_1));
+	    	  
+	    	  Stock stock1_2 = new Stock();
+	    	  stock1_1.setBalanceNo("123456789");
+	    	  stock1_1.setMember(member1);
+//	    	  stock1_1.setMemberId(member1.getId());
+	    	  stock1_1.setFirmNm("NH투자증권");
+	    	  stock1_1.setStockNm("현대자동차");
 	    	  stock1_1.setQty(5);
 	    	  stock1_1.setValTrade(90000);
 	    	  stock1_1.setAssertType("주식");
