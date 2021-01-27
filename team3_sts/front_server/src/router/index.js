@@ -6,6 +6,7 @@ import SignIn from "../views/SignIn.vue";
 import SignUp from "../views/SignUp.vue";
 import Subscribe from "../views/Subscribe.vue";
 import SubscribeList from "../views/SubscribeList.vue";
+import NeighborHome from "../views/NeighborHome.vue";
 
 
 Vue.use(VueRouter);
@@ -47,6 +48,12 @@ const routes = [
     component: SubscribeList
   },
   {
+    path: "/NeighborHome/:id",
+    name: "NeighborHome",
+    props: true,
+    component: NeighborHome
+  },
+  {
     path: "/about",
     name: "About",
     // route level code-splitting
@@ -56,6 +63,8 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/About.vue")
   }
 ];
+
+export {router}
 
 const router = new VueRouter({
   mode: "history",

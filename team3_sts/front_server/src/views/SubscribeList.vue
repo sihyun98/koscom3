@@ -152,30 +152,9 @@
                 </v-list-item-action>             
 
             </v-list-item>
+          </v-list>          
+        </v-flex>  
 
-            <!-- <v-list-item class="mt-5" align="center" justify="center">
-                <v-card>
-                        <v-card-title>
-                        <v-text-field
-                            v-model="search"
-                            append-icon="mdi-magnify"
-                            label="Search"
-                            single-line
-                            hide-details
-                        ></v-text-field>
-                        </v-card-title>
-                        <v-data-table
-                        :headers="headers"
-                        :items="desserts"
-                        :search="search"
-                        ></v-data-table>
-                    </v-card>
-            </v-list-item> -->
-
-          </v-list>
-          
-        </v-flex>
-  
         <v-flex class="mt-5" >
             <v-row align="center" justify="center">
             <v-col>
@@ -193,7 +172,7 @@
                         :headers="headers"
                         :items="desserts"
                         :search="search"
-                        :move="move"
+                        @click:row="handleClick"
                         ></v-data-table>
                     </v-card>
             </v-col>
@@ -282,18 +261,19 @@ export default {
         align: 'start',
         sortable: false,
         value: 'id',
+        align: "center",
       },
-      { text: '이름', value: 'name' },
-      { text: '레벨', value: 'grade' },
-      { text: '투자성향', value: 'investOpt' },    
-      { text: '순위', value: 'ranking' },
-      { text: '수익률', value: 'earningRate' },
-      { text: '이동', value: 'move' },
+      { text: '이름', value: 'name', align: "center"},
+      { text: '레벨', value: 'grade', align: "center" },
+      { text: '투자성향', value: 'investOpt', align: "center" },    
+      { text: '순위', value: 'ranking', align: "center" },
+      { text: '수익률', value: 'earningRate', align: "center" },
+      { text: '이동', value: 'move', align: "center" },
       
     ],
     desserts: [
       {
-        id: 'koscom2',
+        id: '2',
         name: '윤하은',
         grade: 'LV.2 초개미',
         investOpt: '단타위주',
@@ -302,7 +282,7 @@ export default {
         move: '놀러가기',
       },
       {
-        id: 'koscom3',
+        id: '3',
         name: '안기현',
         grade: 'LV3. 노개미',
         investOpt: '투자주식',
@@ -311,7 +291,7 @@ export default {
         move: '놀러가기',
       },
       {
-        id: 'koscom4',
+        id: '4',
         name: '조태율',
         grade: 'LV4. 빨개미',
         investOpt: '투자주식',
@@ -320,7 +300,7 @@ export default {
         move: '놀러가기',
       },
       {
-        id: 'koscom5',
+        id: '5',
         name: '노영록',
         grade: 'LV.1 파개미',
         investOpt: '투자주식',
@@ -329,7 +309,7 @@ export default {
         move: '놀러가기',
       },
       {
-        id: 'koscom6',
+        id: '6',
         name: '이예은',
         grade: 'LV.2 초개미',
         investOpt: '투자주식',
@@ -338,7 +318,7 @@ export default {
         move: '놀러가기',
       },
       {
-        id: 'koscom7',
+        id: '7',
         name: '이영인',
         grade: 'LV3. 노개미',
         investOpt: '투자주식',
@@ -347,7 +327,7 @@ export default {
         move: '놀러가기',
       },
       {
-        id: 'koscom8',
+        id: '8',
         name: '박용수',
         grade: 'LV4. 빨개미',
         investOpt: '위험은조금만',
@@ -356,7 +336,7 @@ export default {
         move: '놀러가기',
       },
       {
-        id: 'koscom9',
+        id: '9',
         name: '김태현',
         grade: 'LV.1 파개미',
         investOpt: '위험은조금만',
@@ -365,7 +345,7 @@ export default {
         move: '놀러가기',
       },
       {
-        id: 'koscom10',
+        id: '10',
         name: '김수아',
         grade: 'LV.2 초개미',
         investOpt: '투자주식',
@@ -376,6 +356,25 @@ export default {
       
     ],
   }),
+  
+  methods: {
+    handleClick(items){
+      this.moveView(items);
+      this.reqParam(items);
+    },
+    moveView(items){
+      // location.href ="neighborhome/" + items.id;
+      this.$router.push({
+        path: 'NeighborHome/' + items.id,
+        params: {"neighborId":items.id}
+        });
+    },
+    // reqParam(items){
+    //   this.$
+    // }
+    
+   
+  },
 }
 </script>
 
