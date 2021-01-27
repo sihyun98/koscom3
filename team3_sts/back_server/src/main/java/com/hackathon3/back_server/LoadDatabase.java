@@ -29,6 +29,8 @@ class LoadDatabase {
 	    	  //Member
 	    	  Member member1 = new Member();
 	    	  member1.setName("차예린");
+	    	  member1.setUsername("koscom1");
+	    	  member1.setPassword("1234");
 	    	  member1.setGrade("LV.1 파개미");
 	    	  member1.setAge(28);
 	    	  member1.setJob("사무직");
@@ -40,6 +42,8 @@ class LoadDatabase {
 	    	  
 	    	  Member member2 = new Member();
 	    	  member2.setName("윤하은");
+	    	  member2.setUsername("koscom2");
+	    	  member2.setPassword("1234");
 	    	  member2.setGrade("LV.2 초개미");
 	    	  member2.setAge(28);
 	    	  member2.setJob("사무직");
@@ -51,6 +55,8 @@ class LoadDatabase {
 	    	  
 	    	  Member member3 = new Member();
 	    	  member3.setName("안기현");
+	    	  member3.setUsername("koscom3");
+	    	  member3.setPassword("1234");
 	    	  member3.setGrade("LV3. 노개미");
 	    	  member3.setAge(29);
 	    	  member3.setJob("사무직");
@@ -62,6 +68,8 @@ class LoadDatabase {
 	    	  
 	    	  Member member4 = new Member();
 	    	  member4.setName("조태율");
+	    	  member4.setUsername("koscom4");
+	    	  member4.setPassword("1234");
 	    	  member4.setGrade("LV4. 빨개미");
 	    	  member4.setAge(29);
 	    	  member4.setJob("사무직");
@@ -73,6 +81,8 @@ class LoadDatabase {
 
 	    	  Member member5 = new Member();
 	    	  member5.setName("노영록");
+	    	  member5.setUsername("koscom5");
+	    	  member5.setPassword("1234");
 	    	  member5.setGrade("LV.1 파개미");
 	    	  member5.setAge(27);
 	    	  member5.setJob("사무직");
@@ -84,6 +94,8 @@ class LoadDatabase {
 
 	    	  Member member6 = new Member();
 	    	  member6.setName("이예은");
+	    	  member6.setUsername("koscom6");
+	    	  member6.setPassword("1234");
 	    	  member6.setGrade("LV.2 초개미");
 	    	  member6.setAge(29);
 	    	  member6.setJob("사무직");
@@ -95,6 +107,8 @@ class LoadDatabase {
 	    	  
 	    	  Member member7 = new Member();
 	    	  member7.setName("이영인");
+	    	  member7.setUsername("koscom7");
+	    	  member7.setPassword("1234");
 	    	  member7.setGrade("LV3. 노개미");
 	    	  member7.setAge(29);
 	    	  member7.setJob("사무직");
@@ -106,6 +120,8 @@ class LoadDatabase {
 	    	  
 	    	  Member member8 = new Member();
 	    	  member8.setName("박용수");
+	    	  member8.setUsername("koscom8");
+	    	  member8.setPassword("1234");
 	    	  member8.setGrade("LV4. 빨개미");
 	    	  member8.setAge(28);
 	    	  member8.setJob("사무직");
@@ -117,6 +133,8 @@ class LoadDatabase {
 	    	  
 	    	  Member member9 = new Member();
 	    	  member9.setName("김태현");
+	    	  member9.setUsername("koscom9");
+	    	  member9.setPassword("1234");
 	    	  member9.setGrade("LV.1 파개미");
 	    	  member9.setAge(22);
 	    	  member9.setJob("사무직");
@@ -128,6 +146,8 @@ class LoadDatabase {
 	    	  
 	    	  Member member10 = new Member();
 	    	  member10.setName("김수아");
+	    	  member10.setUsername("koscom10");
+	    	  member10.setPassword("1234");
 	    	  member10.setGrade("LV.2 초개미");
 	    	  member10.setAge(29);
 	    	  member10.setJob("사무직");
