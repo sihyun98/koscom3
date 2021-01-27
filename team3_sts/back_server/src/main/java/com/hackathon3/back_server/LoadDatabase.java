@@ -8,8 +8,10 @@ import org.springframework.context.annotation.Configuration;
 
 import com.hackathon3.back_server.domain.Member;
 import com.hackathon3.back_server.domain.Stock;
+import com.hackathon3.back_server.domain.Subscribe;
 import com.hackathon3.back_server.repository.MemberRepository;
 import com.hackathon3.back_server.repository.StockRepository;
+import com.hackathon3.back_server.repository.SubscribeRepository;
 
 @Configuration
 class LoadDatabase {
@@ -17,7 +19,7 @@ class LoadDatabase {
 	private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
 
 	  @Bean
-	  CommandLineRunner initDatabase(MemberRepository memberRepository, StockRepository stockRepository) {
+	  CommandLineRunner initDatabase(MemberRepository memberRepository, StockRepository stockRepository, SubscribeRepository subscribeRepository) {
 		  
 //		  MemberRepository memberRepository = ;
 //		  StockRepository stockRepository;
@@ -177,6 +179,10 @@ class LoadDatabase {
 	    	  stock1_1.setValTrade(90000);
 	    	  stock1_1.setAssertType("주식");
 	    	  log.info("Preloading " + stockRepository.save(stock1_1));
+	    	  
+	    	  Subscribe subscribe1_1 = new Subscribe();
+	    	  subscribe1_1.setSubscriber_id(Long.valueOf(2));
+	    	  log.info("Preloading " + subscribeRepository.save(subscribe1_1));
 	    	  
 	      };
 	  }
