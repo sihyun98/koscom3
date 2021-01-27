@@ -34,6 +34,11 @@ public class Member {
 	@OneToMany(fetch = FetchType.LAZY,mappedBy = "member",cascade = CascadeType.ALL)
 	private List<Stock> stocks = new ArrayList<>();
 	
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "member",cascade = CascadeType.ALL)
+	private List<Subscribe> subscribes = new ArrayList<>();
+	
+//	private List<Long> likes = new ArrayList<>();
+	
 	@Override
 	public boolean equals(Object o) {
 
